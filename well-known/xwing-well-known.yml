@@ -1,0 +1,125 @@
+generated: '2026-09-04'
+method: probed
+source: live probes of /.well-known/ and contract-discovery paths on Xwing hosts
+summary: >-
+  Nothing is served. Xwing has one host — www.xwing.com (xwing.com redirects to it) — and
+  it publishes no /.well-known/ document of any kind. Every path returns the Wix error
+  page: HTTP 400 for paths containing a dot segment and HTTP 404 otherwise, with an HTML
+  body in both cases. No security.txt, no OIDC or OAuth discovery, no api-catalog, no
+  ai-plugin.json, no A2A agent card.
+pointer_basis: >-
+  NO WellKnown pointer and NO SecurityTxt pointer are emitted. Every probed path missed,
+  so a pointer would assert a surface the provider does not serve. This file records the
+  absence, which is valid data.
+false_positive_watch: >-
+  The Wix error page is served with an HTML body on every miss. A future round must read
+  the body, not the status: none of these 400/404 responses is a document, and a 200 on
+  this host that returns the Wix marketing shell is not one either.
+hosts:
+- host: https://www.xwing.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 400
+    body: HTML (Wix error page)
+  - path: /.well-known/openid-configuration
+    status: 400
+    body: HTML (Wix error page)
+  - path: /.well-known/oauth-authorization-server
+    status: 400
+    body: HTML (Wix error page)
+  - path: /.well-known/oauth-protected-resource
+    status: 400
+    body: HTML (Wix error page)
+  - path: /.well-known/oauth-protected-resource/_api/mcp
+    status: 400
+    body: HTML (Wix error page)
+  - path: /.well-known/api-catalog
+    status: 400
+    body: HTML (Wix error page)
+  - path: /.well-known/ai-plugin.json
+    status: 400
+    body: HTML (Wix error page)
+  - path: /.well-known/agent-card.json
+    status: 400
+    body: HTML (Wix error page)
+  - path: /.well-known/agent.json
+    status: 400
+    body: HTML (Wix error page)
+  - path: /.well-known/mcp.json
+    status: 400
+    body: HTML (Wix error page)
+- host: https://xwing.com
+  note: 301/307 redirect to https://www.xwing.com; probed independently, identical results.
+  documents:
+  - path: /.well-known/security.txt
+    status: 400
+    body: HTML (Wix error page)
+  - path: /.well-known/openid-configuration
+    status: 400
+    body: HTML (Wix error page)
+  - path: /.well-known/oauth-authorization-server
+    status: 400
+    body: HTML (Wix error page)
+  - path: /.well-known/api-catalog
+    status: 400
+    body: HTML (Wix error page)
+  - path: /.well-known/ai-plugin.json
+    status: 400
+    body: HTML (Wix error page)
+  - path: /.well-known/agent-card.json
+    status: 400
+    body: HTML (Wix error page)
+  - path: /.well-known/agent.json
+    status: 400
+    body: HTML (Wix error page)
+contract_discovery:
+  note: >-
+    STEP 0b contract discovery, run against the only host the record knows. There is no
+    apis[].baseURL and no OpenAPI servers[] host, because no contract exists.
+  probes:
+  - url: https://www.xwing.com/openapi.json
+    status: 400
+    result: HTML (Wix error page), not a spec
+  - url: https://www.xwing.com/openapi.yaml
+    status: 400
+    result: HTML (Wix error page), not a spec
+  - url: https://www.xwing.com/swagger.json
+    status: 400
+    result: HTML (Wix error page), not a spec
+  - url: https://www.xwing.com/v1/openapi.json
+    status: 404
+    result: HTML (Wix error page), not a spec
+  - url: https://www.xwing.com/api-docs
+    status: 404
+  - url: https://www.xwing.com/docs
+    status: 404
+  - url: https://www.xwing.com/redoc
+    status: 404
+  - url: https://www.xwing.com/apis.json
+    status: 400
+  - url: https://www.xwing.com/graphql
+    status: 404
+    result: no GraphQL surface; introspection not attempted because no endpoint exists
+  - url: https://www.xwing.com/developers
+    status: 404
+  - url: https://www.xwing.com/api
+    status: 404
+  - url: https://www.xwing.com/llms.txt
+    status: 200
+    result: real llms.txt, saved verbatim to llms/xwing-llms.txt
+  - url: https://www.xwing.com/_api/mcp
+    status: 200
+    result: live unauthenticated MCP endpoint (Wix platform), see mcp/xwing-mcp.yml
+  - url: https://www.xwing.com/robots.txt
+    status: 200
+    result: Wix auto-generated; Allow / with no developer-path restriction
+  - url: https://www.xwing.com/sitemap.xml
+    status: 200
+    result: >-
+      four child sitemaps, newest lastmod 2024-07-11; pages are blog, home, careers,
+      technology-1, copy-of-home, about, news-1-1 — no developer, api or docs page
+  ogc_probed: false
+  ogc_reason: >-
+    No evidence points at an OGC surface — no geo/gis/maps subdomain, no baseURL, and no
+    prose naming WMS/WFS/WCS/WMTS/CSW or "OGC API" anywhere on the site. Blind path
+    patterns are explicitly out of bounds, so no OGC probe was run.

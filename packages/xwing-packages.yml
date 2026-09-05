@@ -1,0 +1,58 @@
+generated: '2026-09-04'
+method: searched
+source: >-
+  registry.npmjs.org, pypi.org, plus the full www.xwing.com page set (home, about,
+  technology-1, careers, blog, news) — searched 2026-09-04
+package_count: 0
+official_package_count: 0
+packages: []
+summary: >-
+  Xwing publishes no client libraries. There is no developer portal, no SDK page and no
+  GitHub organization to derive candidates from, and no registry carries a first-party
+  Xwing package. No Packages or SDKs pointer is emitted, because there is nothing to
+  point at.
+name_collisions:
+  note: >-
+    Recorded so a later round does not mistake a name collision for a first-party SDK.
+    "xwing" and "superpilot" are both common names and both are taken on public
+    registries by unrelated projects.
+  entries:
+  - registry: npm
+    name: xwing
+    status: 200
+    version: 1.1.7
+    published: null
+    owner: feanor08 (mladarsh08@gmail.com)
+    repository: https://github.com/feanor08/pixelated-pure-css-x-wing
+    description: A Pure Css X Wing Fighter Component
+    official: false
+    verdict: unrelated — a Star Wars themed CSS component, nothing to do with Xwing, Inc.
+  - registry: pypi
+    name: xwing
+    status: 200
+    version: null
+    published: null
+    description: File sharing server with WebDAV support
+    official: false
+    verdict: unrelated — a WebDAV file-sharing server, no Xwing, Inc. attribution
+  - registry: npm
+    name: superpilot
+    status: 200
+    version: null
+    published: null
+    repository: https://github.com/supermodel/superpilot
+    description: Level 5 autopilot
+    official: false
+    verdict: >-
+      unrelated despite the name match with Xwing's Superpilot flight-autonomy product —
+      it belongs to the supermodel GitHub org, not Xwing
+  absent:
+  - registry: npm
+    name: xwing-sdk
+    status: 404
+  - registry: pypi
+    name: xwing-sdk
+    status: 404
+  - registry: pypi
+    name: superpilot
+    status: 404

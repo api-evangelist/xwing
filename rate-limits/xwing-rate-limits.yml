@@ -1,0 +1,19 @@
+generated: '2026-09-04'
+method: searched
+source: https://www.xwing.com/ (full page set searched 2026-09-04)
+limit_count: 0
+rate_limits: []
+note: >-
+  No published rate limits, because there is no published API to limit. Xwing has no
+  developer portal, no API reference and no machine-readable contract. The one callable
+  surface on the domain is the Wix platform MCP endpoint at /_api/mcp, which returned no
+  RateLimit-*, X-RateLimit-* or Retry-After header on the anonymous initialize and
+  tools/list calls observed on 2026-09-04; Wix does not document a limit for it on this
+  site. An honest zero.
+headers_observed: []
+evidence:
+- url: https://www.xwing.com/_api/mcp
+  status: 200
+  note: POST tools/list — response carried no rate-limit headers
+- url: https://www.xwing.com/developers
+  status: 404

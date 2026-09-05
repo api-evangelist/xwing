@@ -1,17 +1,50 @@
 aid: xwing
 name: Xwing
-description: 'Xwing is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: >-
+  Xwing, Inc. is a San Francisco and Concord, California aviation company founded in 2016
+  that built Superpilot, a modular retrofit autonomy system enabling ground-supervised,
+  uncrewed gate-to-gate flight on conventional fixed-wing aircraft. Flying a Cessna 208B
+  Grand Caravan testbed, Xwing completed more than 250 fully autonomous flights and over
+  500 auto-landings, and in April 2023 became the first company to receive an FAA project
+  designation toward certification of a large unmanned aircraft system. Joby Aviation
+  acquired Xwing's autonomy division in June 2024; Xwing retained its Part 135 air cargo
+  operation, and www.xwing.com is now an archived marketing site pointing visitors to
+  Joby. Xwing never published a developer program, public API, SDK or machine-readable
+  contract; the domain's only agent-readable surfaces are the llms.txt and Site MCP
+  endpoint that Wix generates for every site it hosts.
+image: https://static.wixstatic.com/media/38a3e6_e4ab1806ac414f0181a3a0b1b32ee29f~mv2.png
 url: https://raw.githubusercontent.com/api-evangelist/xwing/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
+x-secondary-market-listing: https://forgeglobal.com/xwing_stock/
 x-tier: stub
-x-tier-reason: harvest
+x-tier-reason: no-developer-program
+x-api-posture: no-product-api
+x-api-posture-basis: observed
+x-api-posture-note: >-
+  Xwing's product was embedded aircraft autonomy software certified and integrated onto
+  airframes, never offered as a developer-callable API. STEP 0b contract discovery on
+  2026-09-04 found no OpenAPI, GraphQL, AsyncAPI, gRPC, WSDL or OGC surface on any host
+  the record knows; /developers and /api both return HTTP 404.
+x-division-acquired-by: Joby Aviation
+x-division-acquired-date: '2024-06-05'
+x-division-acquired-note: >-
+  Joby acquired the autonomy division only. Xwing, Inc. retained its Part 135 cargo
+  operation, so this is not a defunct company — but the software business that could have
+  produced an API surface now sits inside Joby Aviation.
 specificationVersion: '0.20'
 created: '2026-09-04'
 modified: '2026-09-04'
 tags:
 - Company
+- Aviation
+- Autonomy
+- Aerospace
+- Unmanned Aircraft
+- Air Cargo
+- Defense
+- Robotics
+- Acquired
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -20,4 +53,48 @@ maintainers:
   email: info@apis.io
 common:
 - type: Website
-  url: https://forgeglobal.com/xwing_stock/
+  url: https://www.xwing.com/
+- type: About
+  url: https://www.xwing.com/about
+- type: Careers
+  url: https://www.xwing.com/careers
+- type: Blog
+  url: https://www.xwing.com/blog
+- type: BlogRSS
+  url: https://www.xwing.com/blog-feed.xml
+- type: Newsroom
+  url: https://www.xwing.com/news-1-1
+- type: LLMsTxt
+  url: llms/xwing-llms.txt
+- type: MCPServer
+  url: mcp/xwing-mcp.yml
+- type: DomainSecurity
+  url: security/xwing-domain-security.yml
+x-coverage:
+  state: none
+  reason: no-developer-program
+  detail: >-
+    Xwing sold embedded aircraft autonomy (Superpilot) and a Part 135 cargo operation, never
+    a developer product — www.xwing.com has no /developers or /api page (both 404), every
+    OpenAPI/Swagger/GraphQL path returns the Wix error shell, and the site's only
+    machine-readable surfaces are the llms.txt and /_api/mcp endpoint that Wix generates for
+    every site it hosts.
+  evidence:
+  - url: https://www.xwing.com/developers
+    status: 404
+  - url: https://www.xwing.com/api
+    status: 404
+  - url: https://www.xwing.com/openapi.json
+    status: 400
+  - url: https://www.xwing.com/graphql
+    status: 404
+  - url: https://www.xwing.com/llms.txt
+    status: 200
+  - url: https://www.xwing.com/_api/mcp
+    status: 200
+  checked: '2026-09-04'
+x-enrichment:
+  date: '2026-09-04'
+  status: minimal
+  artifacts_added: 8
+  pass: local-v3

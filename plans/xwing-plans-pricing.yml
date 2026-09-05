@@ -1,0 +1,18 @@
+generated: '2026-09-04'
+method: searched
+source: https://www.xwing.com/ (full page set searched 2026-09-04)
+plan_count: 0
+plans: []
+note: >-
+  Xwing publishes no plans, tiers or pricing of any kind. www.xwing.com has no /pricing
+  page (HTTP 404), no signup or login, and no commercial self-serve surface — the site is
+  an archived marketing site for an aviation autonomy company whose product (Superpilot)
+  was sold to aircraft operators, manufacturers and defense customers under negotiated
+  contracts, and whose autonomy division was acquired by Joby Aviation in June 2024. The
+  remaining Xwing business is a Part 135 air-cargo operation, not a metered software
+  product. This is an honest zero, not an unchecked field.
+evidence:
+- url: https://www.xwing.com/pricing
+  status: 404
+- url: https://www.xwing.com/
+  status: 200
