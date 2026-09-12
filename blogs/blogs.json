@@ -1,0 +1,21 @@
+{
+  "repo": "xwing",
+  "feeds": [
+    {
+      "source": "https://www.xwing.com/blog",
+      "feed_url": "https://www.xwing.com/blog",
+      "title": "",
+      "saved": 0,
+      "method": "none"
+    },
+    {
+      "source": "https://www.xwing.com/careers",
+      "feed_url": "https://www.xwing.com/careers",
+      "title": "",
+      "saved": 0,
+      "method": "none"
+    }
+  ],
+  "post_count": 0,
+  "fetched": "2026-09-06T19:17:18Z"
+}
